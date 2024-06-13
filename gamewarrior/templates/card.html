@@ -1,17 +1,8 @@
-{% load static %}
-
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-	<link rel="stylesheet" type="text/css" href="{% static 'gamewarrior/style.css' %}">
-</head>
-
-<body>
+{% extends "base.html" %}
 	
-	карточка игры
+{% block content %}
+	<p>карточка игры</p>
 	
-	<h1>
-		{{ model.name }}
-	</h1>
+	<h1>{{ model.name }}</h1>
 	
-</body>
+{% endblock %}
