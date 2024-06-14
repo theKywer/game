@@ -7,9 +7,11 @@ from .models import Game
 
 def card(request, id):
     game = Game.objects.get(pk=id)
-    return render(request, "card.html", {"model": game})
+    
+    return render(request, "card.html", {"model": game}) 
 
 def basket(request):
+    data = Game.objects.all()
     return render(request, "basket.html")
 
 def contact(request):

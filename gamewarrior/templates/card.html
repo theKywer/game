@@ -3,6 +3,9 @@
 {% load static %}
 
 {% block content %}
+
+
+
 	
 
 
@@ -13,8 +16,8 @@
 			<div class="row">
 				<div class="col-md-6">
 					<div class="review-item">
-						<div class="review-cover set-bg" data-setbg="img/review/acoriginsreview.jpg">
-							data-setbg="{% static 'gamewarrior/img/review/acoriginsreview.jpg' %}"></div>
+						<div class="review-cover set-bg" data-setbg="{{model.imagemain}}">
+							
 							<div class="score yellow">7.4</div>
 						</div>
 						<div class="review-text">
@@ -58,11 +61,11 @@
                             <div id="slides">
                                 <div id="overflow">
                                     <div class="image">
-                                        <article><img src="<img src="{% static "gamewarrior/img/cardimg/aco1.jpg" %}" alt="">"></article>
-                                        <article><img src="<img src="{% static "gamewarrior/img/cardimg/aco2.jpg" %}" alt="">"></article>
-                                        <article><img src="<img src="{% static "gamewarrior/img/cardimg/aco3.jpg" %}" alt="">"></article>
-                                        <article><img src="<img src="{% static "gamewarrior/img/cardimg/aco4.jpg" %}" alt="">"></article>
-                                        <article><img src="<img src="{% static "gamewarrior/img/cardimg/aco5.jpg" %}" alt="">"></article>
+                                        <article><img src="{% static "gamewarrior/img/cardimg/aco1.jpg" %}" alt=""></article>
+                                        <article><img src="{% static "gamewarrior/img/cardimg/aco2.jpg" %}" alt=""></article>
+                                        <article><img src="{% static "gamewarrior/img/cardimg/aco3.jpg" %}" alt=""></article>
+                                        <article><img src="{% static "gamewarrior/img/cardimg/aco4.jpg" %}" alt=""></article>
+                                        <article><img src="{% static "gamewarrior/img/cardimg/aco5.jpg" %}" alt=""></article>
                                     </div>
                                 </div>
                             </div>
