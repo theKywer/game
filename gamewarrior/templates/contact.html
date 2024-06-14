@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+	
+
+
+	<!-- Latest news section -->
+	<div class="latest-news-section">
+		<div class="ln-title">Новости</div>
+		<div class="news-ticker">
+			<div class="news-ticker-contant">
+				<div class="nt-item"><span class="new">new</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </div>
+				<div class="nt-item"><span class="strategy">strategy</span>Isum dolor sit amet, consectetur adipiscing elit. </div>
+				<div class="nt-item"><span class="racing">racing</span>Isum dolor sit amet, consectetur adipiscing elit. </div>
+			</div>
+		</div>
+	</div>
+	<!-- Latest news section end -->
+
+
+	<!-- Page info section -->
+	<section class="page-info-section set-bg" data-setbg="img/page-top-bg/5.jpg">
+		<div class="pi-content">
+			<div class="container">
+				<div class="row">
+					<div class="col-xl-5 col-lg-6 text-white">
+						<h2>Связь с Game Warrior</h2>
+						<p>Наша контактная информация</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Page info section -->
+
+
+	<!-- Page section -->
+	<section class="page-section spad contact-page">
+		<div class="container">
+			<div class="map" id="map-canvas"></div>
+			<div class="row">
+				<div class="col-lg-4 mb-5 mb-lg-0">
+					<h4 class="comment-title">Контактная информация</h4>
+					<p>Если вы хотите обратиться к тех. поддержке.</p>
+					<div class="row">
+						<div class="col-md-9">
+							<ul class="contact-info-list">
+								<li><div class="cf-left">Адрес</div><div class="cf-right">1481 Creekside Lane Avila Beach, CA 931</div></li>
+								<li><div class="cf-left">Телефон</div><div class="cf-right">+705 999 7777</div></li>
+								<li><div class="cf-left">E-mail</div><div class="cf-right">gamewarrior@gmail.com</div></li>
+							</ul>
+						</div>
+					</div>
+					<div class="social-links">
+						<a href="https://ru.pinterest.com" target="_blank"><i class="fa fa-pinterest"></i></a>
+						<a href="https://ru-ru.facebook.com" target="_blank" ><i class="fa fa-facebook"></i></a>
+						<a href="https://twitter.com/IES_anh/media" target="_blank"><i class="fa fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/?hl=ru" target="_blank"><i class="fa fa-instagram"></i></a>
+                        <a href="https://vk.com/gamewarriorsite" target="_blank"><i class="fa fa-vk"></i></a>
+                        <a href="https://web.telegram.org/a/" target="_blank"><i class="fa fa-telegram"></i></a>
+					</div>
+				</div>
+				<div class="col-lg-8">
+					<div class="contact-form-warp">
+						<h4 class="comment-title">Оставить ответ</h4>
+						<form class="comment-form">
+							<div class="row">
+								<div class="col-md-6">
+									<input type="text" placeholder="Никнейм">
+								</div>
+								<div class="col-md-6">
+									<input type="email" placeholder="Почта">
+								</div>
+								<div class="col-lg-12">
+									<input type="text" placeholder="Тема">
+									<textarea placeholder="Сообщение"></textarea>
+									<button class="site-btn btn-sm">Отправить</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Page section end -->
+
+
+	{% endblock %}

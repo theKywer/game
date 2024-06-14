@@ -1,8 +1,92 @@
 {% extends "base.html" %}
-	
+
+{% load static %}
+
 {% block content %}
-	<p>карточка игры</p>
 	
-	<h1>{{ model.name }}</h1>
+
+
+
+	<!-- Page section -->
+	<section class="review-section spad set-bg" data-setbg="img/white-bg.jpg" >
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="review-item">
+						<div class="review-cover set-bg" data-setbg="img/review/acoriginsreview.jpg">
+							data-setbg="{% static 'gamewarrior/img/review/acoriginsreview.jpg' %}"></div>
+							<div class="score yellow">7.4</div>
+						</div>
+						<div class="review-text">
+							<h4>{{ model.name }}</h4>
+							<div class="rating">
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star is-fade"></i>
+								<i class="fa fa-star is-fade"></i>
+							</div>
+							<p> Год выхода: {{ model.year }}</p>
+							<p>{{ model.description }}</p>
+						</div>
+					</div>
+				</div>
+
+				<div>
+				<p>ㅤㅤㅤㅤㅤㅤРазработчик: {{ model.developer }}</p>
+				<p>ㅤㅤㅤㅤㅤㅤИздатель: {{ model.publisher }} </p>
+				<p>ㅤМетки: </p>
+					
+					<div class="user-panel">
+						<a href="login.html" >Экшен</a>  /  <a href="registration.html" >Открытый мир</a> / <a href="login.html" >История</a> / <a href="login.html" >Ассассины</a> / <a href="login.html" >Стелс</a> 
+					</div>
+					
+				</div>
+
+				<div class="container">
+					<a  href="tournament.html" target="_blank"  class="site-btn"><i class="fa fa-shopping-basket" aria-hidden="true"></i>  В корзину</a>
+				</div>
+
+                <div class="all">
+                    <input checked type="radio" name="respond" id="desktop">
+                        <article id="slider">
+                                <input checked type="radio" name="slider" id="switch1">
+                                <input type="radio" name="slider" id="switch2">
+                                <input type="radio" name="slider" id="switch3">
+                                <input type="radio" name="slider" id="switch4">
+                                <input type="radio" name="slider" id="switch5">
+                            <div id="slides">
+                                <div id="overflow">
+                                    <div class="image">
+                                        <article><img src="<img src="{% static "gamewarrior/img/cardimg/aco1.jpg" %}" alt="">"></article>
+                                        <article><img src="<img src="{% static "gamewarrior/img/cardimg/aco2.jpg" %}" alt="">"></article>
+                                        <article><img src="<img src="{% static "gamewarrior/img/cardimg/aco3.jpg" %}" alt="">"></article>
+                                        <article><img src="<img src="{% static "gamewarrior/img/cardimg/aco4.jpg" %}" alt="">"></article>
+                                        <article><img src="<img src="{% static "gamewarrior/img/cardimg/aco5.jpg" %}" alt="">"></article>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="controls">
+                                <label for="switch1"></label>
+                                <label for="switch2"></label>
+                                <label for="switch3"></label>
+                                <label for="switch4"></label>
+                                <label for="switch5"></label>
+                            </div>
+                            <div id="active">
+                                <label for="switch1"></label>
+                                <label for="switch2"></label>
+                                <label for="switch3"></label>
+                                <label for="switch4"></label>
+                                <label for="switch5"></label>
+                            </div>
+                        </article>
+            </div>
+
+			
+	</section>
+	
+	<!-- Page section end -->
+	
 	
 {% endblock %}

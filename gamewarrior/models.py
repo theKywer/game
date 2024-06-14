@@ -19,6 +19,8 @@ class Game(models.Model):
     year = models.IntegerField()
     janr_id = models.ForeignKey(Janr, on_delete=models.PROTECT)
     description = models.TextField()
+    developer = models.TextField(default="default title")
+    publisher = models.TextField(default="default title")
     price = models.IntegerField()
 
 
