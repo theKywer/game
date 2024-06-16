@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+	
+{% block content %}
+	
+{% load static %}
+
+
+</head>
+<body>
+    <header>
+        <h1>Интернет-магазин видеоигр</h1>
+    </header>
+
+    <main>
+        <section class="game-list">
+            {% for game in games %}
+                <div class="game-item">
+                    <img src="{{ game.image.url }}" alt="{{ game.name }}">
+                    <h2>{{ game.name }}</h2>
+                    <p>Цена: {{ game.price }} тенге</p>
+                    <a href="{% url 'game_detail' game.id %}" class="btn">Подробнее</a>
+                </div>
+            {% empty %}
+                <p>Товары не найдены</p>
+            {% endfor %}
+        </section>
+    </main>
+
+
+</body>
+
+
+
+
+{% endblock %}

@@ -36,3 +36,7 @@ class OrderList(models.Model):
     order_id = models.ForeignKey(Order, on_delete=models.PROTECT)
     game_id = models.ForeignKey(Game, on_delete=models.PROTECT)
     price = models.IntegerField()
+
+
+    def __str__(self):
+        return self.name

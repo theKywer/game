@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from .models import Game
+from .models import Game, Janr
 
 
 
@@ -21,13 +21,12 @@ def community(request):
     return render(request, "community.html")
 
 def review(request):
-    return render(request, "review.html")
+    game = Game.objects.all()
+    janr = Janr.objects.all()
+    return render(request, "primerigr.html", {"game": game, "janr": janr})
 
 # def login(request):
     # return render(request, "login.html")
-
-def review(request):
-    return render(request, "review.html")
 
 def registration(request):
     return render(request, "registration.html")
@@ -39,3 +38,5 @@ def index(request):
     ctx = {}
     return render(request, "index.html", ctx)
     # return HttpResponse(id)
+
+    
