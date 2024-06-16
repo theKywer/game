@@ -1,13 +1,7 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
-
-class User(models.Model):
-    login = models.TextField()
-    nickname = models.TextField()
-    password = models.TextField()
-    email = models.EmailField()
-    datareg = models.DateField()
 
 class Janr(models.Model):
     name = models.TextField()
