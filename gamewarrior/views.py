@@ -23,8 +23,8 @@ def community(request):
 def review(request):
     return render(request, "review.html")
 
-def login(request):
-    return render(request, "login.html")
+# def login(request):
+    # return render(request, "login.html")
 
 def review(request):
     return render(request, "review.html")
