@@ -22,7 +22,8 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('gamewarrior', include('gamewarrior.urls')),
+    path('', include('gamewarrior.urls', namespace='gamewarrior')),
+    path('users/', include('users.urls', namespace='users')),
 ]
 
 

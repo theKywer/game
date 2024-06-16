@@ -33,7 +33,12 @@
 			<img src="{% static 'gamewarrior/img/logo.png' %}" alt="">
 		</a>
 		<div class="user-panel">
-			<a href="login.html" target="_blank">Логин</a>  /  <a href="registration.html" target="_blank">Регистрация</a>
+			{% if user.is_authenticated %}
+				<li class="last"> {{user.username}} | <a href="{% url 'users:logout' %}">Выйти</a></li>
+			{% else %}
+				{% comment %} <li class="last"><a href="{% url 'users:login' %}">Войти</a> | <a href="#">Регистрация</a></li> {% endcomment %}
+				<a href="{% url 'users:login' %}" target="_blank">Вход|Регистрация</a>
+			{% endif %}
 		</div>
 		<!-- responsive -->
 		<div class="nav-switch">
@@ -42,11 +47,11 @@
 		<!-- site menu -->
 		<nav class="main-menu">
 			<ul>
-				<li><a href="index.html">Главная</a></li>
-				<li><a href="review.html">Игры</a></li>
-				<li><a href="categories.html">Блог</a></li>
-				<li><a href="community.html">Форум</a></li>
-				<li><a href="contact.html">Связь</a></li>
+				<li><a href="{% url 'gamewarrior:index' %}">Главная</a></li>
+				<li><a href="{% url 'gamewarrior:review' %}">Игры</a></li>
+				<li><a href="{% url 'gamewarrior:blog' %}">Блог</a></li>
+				<li><a href="{% url 'gamewarrior:community' %}">Форум</a></li>
+				<li><a href="{% url 'gamewarrior:contact' %}">Связь</a></li>
 			</ul>
 		</nav>
 	</div>
