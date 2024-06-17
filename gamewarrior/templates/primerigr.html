@@ -8,17 +8,20 @@
 </head>
 <body>
     <header>
-        <h1>Интернет-магазин видеоигр</h1>
+        <h2>Список товаров</h2>
+        <p>Самые честные и популярные обзоры</p>
     </header>
 
     <main>
-        <section class="game-list">
+        <section class="primerigr">
             {% for game in games %}
                 <div class="game-item">
-                    <img src="{{ game.image.url }}" alt="{{ game.name }}">
+                    <img src="{{ game.imagemain }}" alt="{{ game.name }}">
                     <h2>{{ game.name }}</h2>
                     <p>Цена: {{ game.price }} тенге</p>
-                    <a href="{% url 'game_detail' game.id %}" class="btn">Подробнее</a>
+                    {% comment %} <a href="{{ url('card', args=[game.id] )}}" class="btn">Подробнее</a> {% endcomment %}
+                    <a href="{% url 'gamewarrior:card' game.id %}" class="btn">Подробнее</a>
+                    
                 </div>
             {% empty %}
                 <p>Товары не найдены</p>

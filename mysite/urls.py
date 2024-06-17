@@ -18,8 +18,8 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
-from . import views
-from game import views
+
+
 
 
 
@@ -27,7 +27,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('gamewarrior.urls', namespace='gamewarrior')),
     path('users/', include('users.urls', namespace='users')),
-    path('game/<int:id>/', views.game_detail, namespace='game_detail'),
 ]
 
 

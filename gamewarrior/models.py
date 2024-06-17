@@ -23,6 +23,8 @@ class Game(models.Model):
     publisher = models.TextField(default="default title")
     price = models.IntegerField()
 
+def __str__(self):
+    return self.name
 
 class Order(models.Model):
     id_order = models.ForeignKey(Janr, on_delete=models.PROTECT)
@@ -38,5 +40,3 @@ class OrderList(models.Model):
     price = models.IntegerField()
 
 
-    def __str__(self):
-        return self.name

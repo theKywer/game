@@ -20,10 +20,10 @@ def contact(request):
 def community(request):
     return render(request, "community.html")
 
-def review(request):
+def primerigr(request):
     game = Game.objects.all()
     janr = Janr.objects.all()
-    return render(request, "primerigr.html", {"game": game, "janr": janr})
+    return render(request, "primerigr.html", {"games": game, "janr": janr})
 
 # def login(request):
     # return render(request, "login.html")
