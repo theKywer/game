@@ -5,8 +5,8 @@ from .models import Game, Janr
 
 
 
-def card(request, id):
-    game = Game.objects.get(pk=id)
+def card(request, slug):
+    game = Game.objects.get(slug=slug)
     
     return render(request, "card.html", {"model": game}) 
 

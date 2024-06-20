@@ -5,7 +5,7 @@ app_name = "gamewarrior"
 
 urlpatterns = [
     path("", views.index, name = "index"),
-    path("card/<int:id>", views.card, name="card"),
+    path("card/<slug:slug>", views.card, name="card"),
     path("main", views.index, name="main"),
     path("blog", views.blog, name="blog"), 
     path("basket", views.basket, name="basket"),

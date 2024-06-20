@@ -10,6 +10,7 @@ class Janr(models.Model):
 
 class Game(models.Model):
     name = models.TextField()
+    slug = models.TextField(default="")
     year = models.IntegerField()
     janr_id = models.ForeignKey(Janr, on_delete=models.PROTECT)
     description = models.TextField()

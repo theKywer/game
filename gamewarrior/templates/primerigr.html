@@ -30,7 +30,7 @@
                     <h2>{{ game.name }}</h2>
                     <p>Цена: {{ game.price }} тенге</p>
                     {% comment %} <a href="{{ url('card', args=[game.id] )}}" class="btn">Подробнее</a> {% endcomment %}
-                    <a href="{% url 'gamewarrior:card' game.id %}" class="btn">Подробнее</a>
+                    <a href="{% url 'gamewarrior:card' game.slug %}" class="btn">Подробнее</a>
                     
                 </div>
             {% empty %}

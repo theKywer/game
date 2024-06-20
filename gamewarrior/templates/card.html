@@ -4,12 +4,6 @@
 
 {% block content %}
 
-{{game.imagemain}} {{ game.name }}
-
-	
-
-
-
 	<!-- Page section -->
 	<section class="review-section spad set-bg" data-setbg="img/white-bg.jpg" >
 		<div class="container">
@@ -17,7 +11,7 @@
 				<div class="col-md-6">
 					<div class="review-item">
 						<div class="review-cover set-bg">
-							<img src="{{ game.imagemain }}" alt="{{ game.name }}">
+							<img src="{{ model.imagemain }}" alt="{{ model.name }}">
 							
 							<div class="score yellow">7.4</div>
 						</div>
@@ -62,12 +56,12 @@
                             <div id="slides">
                                 <div id="overflow">
                                     <div class="image">
-                                        <article><img src="{% static "gamewarrior/img/cardimg/aco1.jpg" %}" alt=""></article>
-                                        <article><img src="{% static "gamewarrior/img/cardimg/aco2.jpg" %}" alt=""></article>
-                                        <article><img src="{% static "gamewarrior/img/cardimg/aco3.jpg" %}" alt=""></article>
-                                        <article><img src="{% static "gamewarrior/img/cardimg/aco4.jpg" %}" alt=""></article>
-                                        <article><img src="{% static "gamewarrior/img/cardimg/aco5.jpg" %}" alt=""></article>
-                                    </div>
+										<article><img src="{{ model.imagecar1 }}" alt=""></article>
+										<article><img src="{{ model.imagecar2 }}" alt=""></article>
+										<article><img src="{{ model.imagecar3 }}" alt=""></article>
+										<article><img src="{{ model.imagecar4 }}" alt=""></article>
+										<article><img src="{{ model.imagecar5 }}" alt=""></article>
+									</div>
                                 </div>
                             </div>
                             <div id="controls">
