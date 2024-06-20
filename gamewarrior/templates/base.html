@@ -163,11 +163,11 @@
 <footer class="footer-section">
 	<div class="container">
 		<ul class="footer-menu">
-			<li><a href="index.html">Главная</a></li>
-			<li><a href="review.html">Игры</a></li>
-			<li><a href="categories.html">Блог</a></li>
-			<li><a href="community.html">Форум</a></li>
-			<li><a href="contact.html">Связь</a></li>
+			<li><a href="{% url 'gamewarrior:index' %}">Главная</a></li>
+			<li><a href="{% url 'gamewarrior:primerigr' %}">Игры</a></li>
+			<li><a href="{% url 'gamewarrior:blog' %}">Блог</a></li>
+			<li><a href="{% url 'gamewarrior:community' %}">Форум</a></li>
+			<li><a href="{% url 'gamewarrior:contact' %}">Связь</a></li>	
 		</ul>
 		<p class="copyright">
 Copyright &copy;<script>document.write(new Date().getFullYear());</script> Pavel Kovalenko
