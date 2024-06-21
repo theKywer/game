@@ -124,57 +124,71 @@
 	<!-- Feature section end -->
 
 
-	<!-- Recent game section  -->
-	<section class="recent-game-section spad set-bg" style="background-image: url('{% static 'gamewarrior/img/recent-game-bg.png' %}');">
-		<div class="container">
-			<div class="section-title">
-				<div class="cata new">новое</div>
-				<h2>Рекомендуемое пользователям</h2>
-			</div>
-			<div class="row">
-				<div class="col-lg-4 col-md-6">
-					<div class="recent-game-item">
-						<div class="rgi-thumb set-bg" style="background-image: url('{% static 'gamewarrior/img/recent-game/9.jpg' %}');">
-							<div class="cata new">Экшен</div>
-						</div>
-						<div class="rgi-content">
-							<h5>Risk of Rain 2</h5>
-							<p>Выберитесь с хаотичной неизвестной планеты, отбиваясь от полчищ безумных монстров в одиночку или с друзьями. Самостоятельно станьте разрушительной силой на одну легендарную жизнь. </p>
-							<div class="rgi-extra">
-							</div>
-						</div>
-					</div>	
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="recent-game-item">
-						<div class="rgi-thumb set-bg" style="background-image: url('{% static 'gamewarrior/img/recent-game/2.jpg' %}');">
-							<div class="cata racing">Экшен Шутер</div>
-						</div>
-						<div class="rgi-content">
-							<h5>DOOM (2016)</h5>
-							<p>Включает все 3 дополнения (Unto the Evil, Hell Followed и Bloodfall), карты, режимы и оружие, а также все нововведения, включая аркадный режим, и последнее обновление 6.66, затрагивающее сетевую игру.</p>
-							<div class="rgi-extra">
-							</div>
-						</div>
-					</div>	
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="recent-game-item">
-						<div class="rgi-thumb set-bg" style="background-image: url('{% static 'gamewarrior/img/recent-game/10.jpg' %}');">
-							<div class="cata adventure">Приключение</div>
-						</div>
-						<div class="rgi-content">
-							<h5>God of War</h5>
-							<p>Отомстив богам Олимпа, Кратос живет в царстве скандинавских божеств и чудовищ. В этом суровом беспощадном мире он должен не только самостоятельно бороться за выживание... но и научить этому сына.</p>
-							<div class="rgi-extra">
-							</div>
-						</div>
-					</div>	
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- Recent game section end -->
+	<!-- Recent game section -->
+<section class="recent-game-section spad set-bg" style="background-image: url('{% static 'gamewarrior/img/recent-game-bg.png' %}');">
+    <div class="container">
+        <div class="section-title">
+            <div class="cata new">новое</div>
+            <h2>Рекомендуемое пользователям</h2>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="recent-game-item">
+                    <div class="rgi-thumb set-bg" style="background-image: url('{% static 'gamewarrior/img/recent-game/9.jpg' %}');">
+                        <div class="cata new">Экшен</div>
+                    </div>
+                    <div class="rgi-content">
+                        <h5><a href="/card/risk_of_rain_2" class="custom-link">Risk of Rain 2</a></h5>
+                        <p>Выберитесь с хаотичной неизвестной планеты, отбиваясь от полчищ безумных монстров в одиночку или с друзьями. Самостоятельно станьте разрушительной силой на одну легендарную жизнь. </p>
+                        <div class="rgi-extra">
+                        </div>
+                    </div>
+                </div>  
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="recent-game-item">
+                    <div class="rgi-thumb set-bg" style="background-image: url('{% static 'gamewarrior/img/recent-game/2.jpg' %}');">
+                        <div class="cata racing">Экшен Шутер</div>
+                    </div>
+                    <div class="rgi-content">
+                        <h5><a href="/card/doom" class="custom-link">DOOM (2016)</a></h5>
+                        <p>Включает все 3 дополнения (Unto the Evil, Hell Followed и Bloodfall), карты, режимы и оружие, а также все нововведения, включая аркадный режим, и последнее обновление 6.66, затрагивающее сетевую игру.</p>
+                        <div class="rgi-extra">
+                        </div>
+                    </div>
+                </div>  
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="recent-game-item">
+                    <div class="rgi-thumb set-bg" style="background-image: url('{% static 'gamewarrior/img/recent-game/10.jpg' %}');">
+                        <div class="cata adventure">Приключение</div>
+                    </div>
+                    <div class="rgi-content">
+                        <h5><a href="/card/god_of_war" class="custom-link">God of War</a></h5>
+                        <p>Отомстив богам Олимпа, Кратос живет в царстве скандинавских божеств и чудовищ. В этом суровом беспощадном мире он должен не только самостоятельно бороться за выживание... но и научить этому сына.</p>
+                        <div class="rgi-extra">
+                        </div>
+                    </div>
+                </div>  
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Recent game section end -->
+
+<!-- Custom CSS -->
+<style>
+    .custom-link {
+        color: inherit; /* Использует цвет родительского элемента */
+        text-decoration: none; /* Убирает подчеркивание */
+    }
+
+    .custom-link:hover {
+        color: #FFA500; 
+        text-decoration: underline; 
+    }
+</style>
+
 
 
 
@@ -193,7 +207,7 @@
 							<div class="score yellow">9.3</div>
 						</div>
 						<div class="review-text">
-							<h5>Assasin’’s Creed Origins</h5>
+							<h5><a href="/card/assasins_creed_origins" class="custom-link">Assasin’’s Creed Origins</a></h5>
 							<p>ASSASSIN’S CREED® ИСТОКИ - НОВОЕ НАЧАЛО *Интерактивный тур "Assassin's Creed®: Древний Египет" доступен в новом обновлении!* Раскройте тайны Древнего Египта и узнайте, как было создано Братство ассасинов.</p>
 						</div>
 					</div>
@@ -204,7 +218,7 @@
 							<div class="score purple">9.5</div>
 						</div>
 						<div class="review-text">
-							<h5>DOOM 2016</h5>
+							<h5><a href="/card/doom" class="custom-link">DOOM (2016)</a></h5>
 							<p>Компьютерная игра в жанре экшен шутера от первого лица. Большая жестокость, сложность и АД.</p>
 						</div>
 					</div>
@@ -215,7 +229,7 @@
 							<div class="score green">9.1</div>
 						</div>
 						<div class="review-text">
-							<h5>The Witcher 3: Wild Hunt</h5>
+							<h5><a href="/card/the_witcher_3_wild_hunt" class="custom-link">The Witcher 3: Wild Hunt</a></h5>							
 							<p>Вы — Геральт из Ривии, наемный убийца чудовищ. Вы путешествуете по миру, в котором бушует война и на каждом шагу подстерегают чудовища.</p>
 						</div>
 					</div>
@@ -226,7 +240,7 @@
 							<div class="score pink">9.7</div>
 						</div>
 						<div class="review-text">
-							<h5>Grand theft Auto V</h5>
+							<h5><a href="/card/gta_v" class="custom-link">Grand Theft Auto V</a></h5>
 							<p>Игра в жанре action-adventure с открытым миром, разработанная компанией Rockstar North и изданная компанией Rockstar Games.</p>
 						</div>
 					</div>
