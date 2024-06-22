@@ -12,6 +12,17 @@
 		background-position: center; 
 		padding: 80px 0; 
 	}
+
+	/* Вставляем CSS здесь */
+	li {
+		font-size: 15px;
+		line-height: 1.5;
+	}
+
+	ul.custom-list li,
+	ol.custom-list li {
+		font-size: 10px;
+	}
 </style>
 
 	<!-- Page section -->
@@ -23,7 +34,6 @@
 						<div class="review-cover set-bg">
 							<img src="{{ model.imagemain }}" alt="{{ model.name }}">
 							
-							<div class="score yellow">7.4</div>
 						</div>
 						<div class="review-text">
 							<h4>{{ model.name }}</h4>
