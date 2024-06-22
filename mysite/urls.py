@@ -27,6 +27,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('gamewarrior.urls', namespace='gamewarrior')),
     path('users/', include('users.urls', namespace='users')),
+    path('ecommerce/', include('ecommerce.urls', namespace='ecommerce')),
 ]
 
 

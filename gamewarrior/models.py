@@ -27,19 +27,6 @@ class Game(models.Model):
 def __str__(self):
     return self.name
 
-class Order(models.Model):
-    id_order = models.ForeignKey(Janr, on_delete=models.PROTECT)
-    id_user = models.ForeignKey(User, on_delete=models.PROTECT)
-    id_game = models.ForeignKey(Game, on_delete=models.PROTECT)
-    status_pay = models.BooleanField()
-    price = models.IntegerField()
-    update_time = models.DateTimeField()
-
-class OrderList(models.Model):
-    order_id = models.ForeignKey(Order, on_delete=models.PROTECT)
-    game_id = models.ForeignKey(Game, on_delete=models.PROTECT)
-    price = models.IntegerField()
-
 class Tag(models.Model):
     name = models.TextField(default="")
 

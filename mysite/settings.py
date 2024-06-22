@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'gamewarrior.apps.GamewarriorConfig',
     'users.apps.UsersConfig',
+    'ecommerce.apps.EcommerceConfig',
 ]
 
 MIDDLEWARE = [
