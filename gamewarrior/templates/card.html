@@ -43,18 +43,18 @@
 				<div>
 				<p>ㅤㅤㅤㅤㅤㅤРазработчик: {{ model.developer }}</p>
 				<p>ㅤㅤㅤㅤㅤㅤИздатель: {{ model.publisher }} </p>
-				<p>ㅤМетки: </p>
+				<p>ㅤㅤㅤㅤㅤㅤМетки: </p>
 					
 					<div class="user-panel">
 						{% for tag in tags %}
-							<li>{{ tag.name }}</li>
+							<li>{{ tag.id_tag }}</li>
 					  	{% endfor %}
 					</div>
 					
 				</div>
 
 				<div class="container">
-					<a  href="basket.html" target="_blank"  class="site-btn"><i class="fa fa-shopping-basket" aria-hidden="true"></i>  В корзину / {{ model.price }} тенге</a>
+				 <a href="{% url 'ecommerce:basket' %}" target="_blank"  class="site-btn"><i class="fa fa-shopping-basket" aria-hidden="true"></i>  В корзину / {{ model.price }} тенге</a>
 				</div>
 
                 <div class="all">
