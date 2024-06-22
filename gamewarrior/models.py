@@ -27,8 +27,18 @@ class Game(models.Model):
 def __str__(self):
     return self.name
 
+
+@property
+def tags(self):
+    return Tag.objects.filter(tagsofgame__id_game=self)   
+
+
 class Tag(models.Model):
     name = models.TextField(default="")
+
+    def __str__(self):
+        return self.name
+
 
 class TagsOfGame(models.Model):
     id_game = models.ForeignKey(Game, on_delete=models.PROTECT)
