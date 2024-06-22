@@ -40,4 +40,9 @@ class OrderList(models.Model):
     game_id = models.ForeignKey(Game, on_delete=models.PROTECT)
     price = models.IntegerField()
 
+class Tag(models.Model):
+    name = models.TextField(default="")
 
+class TagsOfGame(models.Model):
+    id_game = models.ForeignKey(Game, on_delete=models.PROTECT)
+    id_tag = models.ForeignKey(Tag, on_delete=models.PROTECT)
