@@ -46,11 +46,9 @@
 				<p>ㅤМетки: </p>
 					
 					<div class="user-panel">
-						{% for tag_of_game in tags_of_game %}
-                        <span>{{ tag_of_game.id_tag.name }}</span>{% if not forloop.last %}, {% endif %}
-						
-						{% comment %} <p>{{  }}</p> / <a >  {{ model.id_tag }}  </a> / <a >{{ model.id_tag }}</a> / <a >Ассассины</a> / <a  >Стелс</a>  {% endcomment %}
-					    {% endfor %}
+						{% for tag in tags %}
+							<li>{{ tag.name }}</li>
+					  	{% endfor %}
 					</div>
 					
 				</div>

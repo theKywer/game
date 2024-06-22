@@ -1,14 +1,17 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from .models import Game, Janr
+from .models import Game, Janr, TagsOfGame
 
 
 
 
 def card(request, slug):
     game = Game.objects.get(slug=slug)
-    
-    return render(request, "card.html", {"model": game}) 
+    tags = TagsOfGame.objects.filter(id_game=game.id)
+    return render(request, "card.html", {
+        "model": game,
+        "tags": tags,
+    }) 
 
 def basket(request):
     data = Game.objects.all()
