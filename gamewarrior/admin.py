@@ -6,5 +6,5 @@ from .models import *
 # admin.site.register(User)
 admin.site.register(Game)
 admin.site.register(Janr)
-admin.site.register(Order)
-admin.site.register(OrderList)
+admin.site.register(Tag)
+admin.site.register(TagsOfGame)
