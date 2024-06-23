@@ -17,6 +17,34 @@
             overflow: hidden;
             text-overflow: ellipsis; /* Для эффекта многоточия, если текст обрезается */
         }
+
+        /* CSS для формы поиска */
+        .search-form {
+            margin-bottom: 30px; /* Отступ снизу */
+            display: flex; /* Расположение элементов в строку */
+            justify-content: center; /* Центрирование формы */
+        }
+
+        .search-form input[type="text"] {
+            padding: 10px; /* Внутренний отступ */
+            border: 1px solid #ccc; /* Тонкая обводка */
+            border-radius: 5px 0 0 5px; /* Закругленные углы слева */
+            width: 300px; /* Ширина поля ввода */
+        }
+
+        .search-form button[type="submit"] {
+            padding: 10px 20px; /* Внутренний отступ */
+            border: 1px solid #ccc; /* Тонкая обводка */
+            border-left: none; /* Убрать левую обводку */
+            border-radius: 0 5px 5px 0; /* Закругленные углы справа */
+            background-color: #FFA500; /* Цвет фона кнопки */
+            color: white; /* Цвет текста кнопки */
+            cursor: pointer; /* Курсор указатель */
+        }
+
+        .search-form button[type="submit"]:hover {
+            background-color: #e69500; /* Цвет фона кнопки при наведении */
+        }
     </style>
 
     <section class="page-info-section set-bg" style="background-image: url('{% static 'gamewarrior/img/page-top-bg/3.jpg' %}');">
@@ -25,7 +53,7 @@
                 <div class="row">
                     <div class="col-xl-5 col-lg-6 text-white">
                         <h2>Игры</h2>
-                        <p>Самые лучший игры по самым лучшим</p>
+                        <p>Самые лучшие игры по самым лучшим ценам</p>
                     </div>
                 </div>
             </div>
@@ -35,21 +63,10 @@
 
     <main>
         <!-- Форма поиска -->
-        <form method="GET" action="{% url 'gamewarrior:primerigr' %}">
+        <form class="search-form" method="GET" action="{% url 'gamewarrior:primerigr' %}">
             <input type="text" name="q" placeholder="Поиск по названию" value="{{ request.GET.q }}">
             <button type="submit">Искать <i class="fa fa-search"></i></button>
         </form>
-
-        <!-- Результаты поиска -->
-        {% if games %}
-            <ul>
-                {% for game in games %}
-                    <li>{{ game.name }}</li>
-                {% endfor %}
-            </ul>
-        {% else %}
-            <p>Не найдено</p>
-        {% endif %}
 
         <section class="primerigr">
             <div class="container">

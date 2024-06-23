@@ -1,10 +1,16 @@
-from django.http import HttpResponse
 from django.shortcuts import render
 from .models import Game, Janr, TagsOfGame
 
+def primerigr(request):
+    query = request.GET.get('q')
+    if query:
+        games = Game.objects.filter(name__icontains=query)
+    else:
+        games = Game.objects.all()
+    janr = Janr.objects.all()
+    return render(request, "primerigr.html", {"games": games, "janr": janr})
 
-
-
+# Остальные функции остаются без изменений
 def card(request, slug):
     game = Game.objects.get(slug=slug)
     tags = TagsOfGame.objects.filter(id_game=game.id)
@@ -23,20 +29,6 @@ def contact(request):
 def community(request):
     return render(request, "community.html")
 
-def primerigr(request):
-    game = Game.objects.all()
-    janr = Janr.objects.all()
-    query = request.GET.get('q')
-    if query:
-        game = Game.objects.filter(name__icontains=query)
-    else:
-        game = Game.objects.all()
-        
-        return render(request, "primerigr.html", {"games": game, "janr": janr})
-
-# def login(request):
-    # return render(request, "login.html")
-
 def registration(request):
     return render(request, "registration.html")
 
@@ -46,16 +38,3 @@ def blog(request):
 def index(request):
     ctx = {}
     return render(request, "index.html", ctx)
-    # return HttpResponse(id)
-
-
-    
-def game_search(request):
-    query = request.GET.get('q')
-    if query:
-        games = Game.objects.filter(name__icontains=query)
-    else:
-        games = Game.objects.all()
-    
-    return render(request, 'game_search.html', {'games': games})
-    
