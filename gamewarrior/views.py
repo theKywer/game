@@ -26,9 +26,13 @@ def community(request):
 def primerigr(request):
     game = Game.objects.all()
     janr = Janr.objects.all()
-    
-
-    return render(request, "primerigr.html", {"games": game, "janr": janr})
+    query = request.GET.get('q')
+    if query:
+        game = Game.objects.filter(name__icontains=query)
+    else:
+        game = Game.objects.all()
+        
+        return render(request, "primerigr.html", {"games": game, "janr": janr})
 
 # def login(request):
     # return render(request, "login.html")
