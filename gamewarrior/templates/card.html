@@ -64,7 +64,7 @@
 				</div>
 
 				<div class="container">
-				 <a href="{% url 'ecommerce:basket' %}" target="_blank"  class="site-btn"><i class="fa fa-shopping-basket" aria-hidden="true"></i>  В корзину / {{ model.price }} тенге</a>
+				 <a href="{% url 'gamewarrior:payment_confirmation' model.slug %}" target="_blank"  class="site-btn"><i class="fa fa-shopping-basket" aria-hidden="true"></i> К оплате / {{ model.price }} тенге</a>
 				</div>
 
                 <div class="all">

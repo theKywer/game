@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% load static %}
+
+    <style>
+        .game-item {
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+            padding: 10px;
+            text-align: center;
+        }
+        .game-item img {
+            max-width: 100%;
+            height: auto;
+        }
+        .game-item h2 {
+            font-size: 1.5em;
+        }
+        .site-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #ffb320; /* Цвет фона */
+            color: black; /* Цвет текста */
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .site-btn:hover {
+            background-color: #878787; /* Цвет фона при наведении */
+        }
+        .alert {
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid transparent;
+            border-radius: .25rem;
+            color: #856404;
+            background-color: #fff3cd;
+            border-color: #ffeeba;
+        }
+        .alert-warning {
+            color: #856404;
+            background-color: #fff3cd;
+            border-color: #ffeeba;
+        }
+        .activation-key {
+            margin-top: 20px;
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap; /* Оборачиваем элементы на новую строку при необходимости */
+        }
+        .activation-key label {
+            margin-right: 10px; /* Отступ между надписью и блоком с ключом */
+        }
+        .activation-key .key-text {
+            white-space: pre-wrap; /* Для корректного отображения пробелов и переносов строки */
+            font-family: monospace; /* Используем моноширинный шрифт для сохранения формата ключа */
+            padding: 10px;
+            background-color: #f8f9fa; /* Цвет фона блока с ключом */
+            border: 1px solid #ccc; /* Подчеркиваем рамкой */
+            border-radius: 5px;
+            flex-grow: 1; /* Занимает всю доступную ширину */
+            margin-right: 10px; /* Отступ справа для разделения от кнопок */
+            min-width: 200px; /* Минимальная ширина блока с ключом, чтобы надпись не слишком близко к кнопке */
+        }
+        .activation-key .reveal-btn {
+            background-color: #ffb320; /* Цвет фона кнопки */
+            color: white; /* Цвет текста кнопки */
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .activation-key .reveal-btn:hover {
+            background-color: #878787; /* Цвет фона кнопки при наведении */
+        }
+    </style>
+
+    <div class="container">
+        <div class="alert alert-warning">
+            <strong>Поздравляем!</strong> Вы успешно купили игру. Благодарим за покупку.
+        </div>
+
+        <section class="primerigr">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="game-item">
+                            <img src="{{ model.imagemain }}" alt="{{ model.name }}">
+                            <h2>{{ model.name }}</h2>
+                            <p>Год выхода: {{ model.year }}</p>
+                            <div class="model-description">
+                                <p>{{ model.description }}</p>
+                            </div>
+                            <div class="container">
+                                <a href="{% url 'gamewarrior:card' model.slug %}" class="site-btn">Информация об игре</a>
+                                <a href="{% url 'gamewarrior:primerigr' %}" class="site-btn">Перейти к списку игр</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="activation-key">
+            <label for="activationKey">Ваш ключ активации:</label>
+            <div class="key-text" id="activationKey">{{ '***************' }}</div>
+            <button class="reveal-btn" onclick="revealKey()">Показать</button>
+        </div>
+    </div>
+
+    <script>
+        function revealKey() {
+            var keyText = document.querySelector('#activationKey');
+            var btnText = document.querySelector('.activation-key .reveal-btn');
+            if (keyText.textContent === '***************') {
+                var randomKey = generateRandomKey();
+                keyText.textContent = randomKey;
+                btnText.textContent = 'Скрыть';
+            } else {
+                keyText.textContent = '***************';
+                btnText.textContent = 'Показать';
+            }
+        }
+
+        function generateRandomKey() {
+            var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            var key = '';
+            for (var i = 0; i < 16; i++) {
+                key += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            return key;
+        }
+    </script>
+
+    <script src="{% static 'js/scripts.js' %}"></script>
+{% endblock %}

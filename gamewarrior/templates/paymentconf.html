@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% load static %}
+
+    <style>
+        .game-item {
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+            padding: 10px;
+            text-align: center;
+        }
+        .game-item img {
+            max-width: 100%;
+            height: auto;
+        }
+        .game-item h2 {
+            font-size: 1.5em;
+        }
+        .site-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #ffb320; /* Цвет фона */
+            color: black; /* Цвет текста */
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .site-btn:hover {
+            background-color: #878787; /* Цвет фона при наведении */
+        }
+        .alert {
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid transparent;
+            border-radius: .25rem;
+            color: #856404;
+            background-color: #fff3cd;
+            border-color: #ffeeba;
+        }
+        .alert-warning {
+            color: #856404;
+            background-color: #fff3cd;
+            border-color: #ffeeba;
+        }
+    </style>
+
+    <div class="container">
+        <div class="alert alert-warning">
+            <strong>Предупреждение!</strong> Вы хотите купить эту игру.
+        </div>
+
+        <section class="primerigr">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="game-item">
+                            <img src="{{ model.imagemain }}" alt="{{ model.name }}">
+                            <h2>{{ model.name }}</h2>
+                            <p>Год выхода: {{ model.year }}</p>
+                            <div class="model-description">
+                                <p>{{ model.description }}</p>
+                            </div>
+                            <div class="container">
+                                <a href="{% url 'gamewarrior:card' model.slug %}" class="site-btn">Информация об игре</a>
+                                <a href="{% url 'gamewarrior:sucpayment' model.slug %}" class="site-btn">Перейти к оплате / {{ model.price }} тенге</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="{% static 'js/scripts.js' %}"></script>
+{% endblock %}

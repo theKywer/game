@@ -25,9 +25,9 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('basket/', include('cart.urls', namespace='basket')),
     path('', include('gamewarrior.urls', namespace='gamewarrior')),
     path('users/', include('users.urls', namespace='users')),
-    path('ecommerce/', include('ecommerce.urls', namespace='ecommerce')),
 ]
 
 

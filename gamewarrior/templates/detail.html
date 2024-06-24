@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+
+{{ game.name }}
+{% endblock %}
+{% block content %}
+<div class="product-detail">
+<img src="{% if game.image %}{{ game.image.url }}{% else %}
+{% static "img/no_image.png" %}{% endif %}">
+<h1>{{ game.name }}</h1>
+<h2>
+<a href="{{ product.category.get_absolute_url }}">{{product.category }}</a>
+</h2>
+<p class="price">${{ game.price }}</p>
+{{ product.description|linebreaks }}
+</div>
+{% endblock %}

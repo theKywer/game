@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Game, Janr, TagsOfGame
+from cart.forms import CartAddGameForm
 
 def primerigr(request):
     query = request.GET.get('q')
@@ -19,7 +20,26 @@ def card(request, slug):
         "tags": tags,
     }) 
 
+def payment_confirmation(request, slug):
+    game = get_object_or_404(Game, slug=slug)
+    tags = TagsOfGame.objects.filter(id_game=game.id)
+    return render(request, "paymentconf.html", {
+        "model": game,
+        "tags": tags,
+    }) 
+
+def sucpayment(request, slug):
+    game = get_object_or_404(Game, slug=slug)
+    tags = TagsOfGame.objects.filter(id_game=game.id)
+    return render(request, "sucpayment.html", {
+        "model": game,
+        "tags": tags,
+    }) 
 def basket(request):
+    janr = None
+    janrs = Janr.objects.all()
+    games = Game.objects.filter(available=True)
+    cart_game_form = CartAddGameForm()
     data = Game.objects.all()
     return render(request, "basket.html")
 

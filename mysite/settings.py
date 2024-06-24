@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'gamewarrior.apps.GamewarriorConfig',
     'users.apps.UsersConfig',
-    'ecommerce.apps.EcommerceConfig',
 ]
 
 MIDDLEWARE = [
@@ -65,6 +64,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'cart.context_processors.cart',
             ],
         },
     },
@@ -140,3 +140,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/img/'
 MEDIA_ROOT = BASE_DIR / 'img'
+
+CART_SESSION_ID = 'cart'

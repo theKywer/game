@@ -1,74 +1,70 @@
 {% extends "base.html" %}
+
 {% load static %}
 
 {% block content %}
-    <style>
-        .order-details {
-            margin-top: 20px;
-            border: 1px solid #ccc;
-            padding: 10px;
-            background-color: #f9f9f9;
-        }
 
-        .order-details h3 {
-            font-size: 1.5em;
-            margin-bottom: 10px;
-        }
 
-        .order-details ul {
-            list-style-type: none;
-            padding: 0;
-        }
 
-        .order-details li {
-            border-bottom: 1px solid #eee;
-            padding: 10px;
-            display: flex;
-            align-items: center;
-        }
 
-        .order-details li img {
-            margin-right: 10px;
-            border-radius: 5px;
-        }
 
-        .order-details li h4 {
-            margin: 0;
-        }
 
-        .order-details li p {
-            margin: 0;
-        }
+<h1>Корзина покупок</h1>
+<table class="cart">
+    <thead>
+        <tr>
+            <th>Изображение</th>
+            <th>Игра</th>
+            <th>Обновить кол-вор</th>
+            <th>Удалить</th>
+            <th>Кол-во</th>
+            <th>Цена</th>
+            <th>Общая стоимость</th>
+        </tr>
+    </thead>
+    <tbody>
+        {%for item in cart %}
+            {% with game=item.game %}
+                <tr>
+                    <td>
+                        <a href="{{ game.get_absolute_url}}">
+                            <img src="{% if game.image %}{{game.image.url}}{% else %}{%static 'img/mo_image.png'%}{% endif%}">
+                        </a>
+                    </td>
+                    <td>{{ game.name }} </td>
+                    <td>
+                        <form action="{% url 'cart:cart_add' game.id %}" method="post">
+                            {{ item.update_quantity_form.quantity}} 
+                            {{ item.update_quantity_form.update}}
+                            <input tepy ="submit" value="Обновнить">
+                            {% csrf_token %}
+                        </form>
+                    </td>
+                    <td><a href="{% url 'cart:cart_remove' game.id %}">Удалить</a></td>
+                    <td>
+                        {{ item.quantity }}
+                    </td>
+                    <td class="num"> ${{ item.price }}</td>
+                    <td class="num"> ${{ item.total_price }}</td>
+                </tr>
+                {% endwith %}
+            {% endfor %}
+            <tr class = "total">
+                <td>Всего</td>
+                 <td colspan="4"></td>
+                 <td class "num">${{ cart.get_total_price}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <p class="text-right">
+        <a href="{% url 'gamewarrior:index' %}" class="button light">В магазин</a>
+    <a href="#" class="button">Оформить заказ</a>
+    </p>   
 
-        .order-details p.total-price {
-            font-size: 1.2em;
-            font-weight: bold;
-            margin-top: 10px;
-        }
-    </style>
 
-    <h2>Корзина</h2>
 
-    <div class="order-details">
-        <h3>Ваш заказ</h3>
-        <ul>
-            {% if order_items %}
-                {% for item in order_items %}
-                    <li>
-                        <img src="{{ item.id_game.imagemain.url }}" alt="{{ item.id_game.name }}" style="width: 50px; height: 50px;">
-                        <h4>{{ item.id_game.name }}</h4>
-                        <p>Цена: {{ item.price }} тенге</p>
-                        <a href="{% url 'ecommerce:remove_from_basket' item.id %}">Удалить</a>
-                    </li>
-                {% endfor %}
-                <li class="total-price">Общая стоимость: {{ total_price }} тенге</li>
-            {% else %}
-                <li>Ваша корзина пуста.</li>
-            {% endif %}
-        </ul>
-    </div>
 
-    <div>
-        <a href="{% url 'ecommerce:checkout' %}" class="site-btn">Оформить заказ</a>
-    </div>
+
+
+
 {% endblock %}
