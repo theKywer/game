@@ -1,11 +1,42 @@
-﻿{% extends 'base.html' %}
- 
-{% block content %}
-<h1>Добро пожаловать!</h1>
- 
-<p >Вы успешно зарегистрировались на сайте! Для входа в систему необходимо авторизоваться по этой <a href="{% url 'users:login' %}">ссылке</a>
-</p>
-{% endblock %}
+﻿
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        p {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            font-size: 16px;
+        }
+
+        p a {
+            color: #ffb320;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        p a:hover {
+            color: #878787;
+        }
+    </style>
+
+    <h1>Добро пожаловать!</h1>
+
+    <p>Вы успешно зарегистрировались на сайте! Для входа в систему необходимо авторизоваться по этой <a href="{% url 'users:login' %}">ссылке</a>.</p>
 
 
 
