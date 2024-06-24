@@ -1,44 +1,74 @@
 {% extends "base.html" %}
-
 {% load static %}
 
 {% block content %}
-	
-<p>{{ model }}</p>
+    <style>
+        .order-details {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
 
+        .order-details h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
 
+        .order-details ul {
+            list-style-type: none;
+            padding: 0;
+        }
 
+        .order-details li {
+            border-bottom: 1px solid #eee;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+        }
 
+        .order-details li img {
+            margin-right: 10px;
+            border-radius: 5px;
+        }
 
-	{% comment %} <!-- Page info section -->
-	<section class="page-info-section set-bg" data-setbg="img/page-top-bg/1.jpg">
-		<div class="pi-content">
-			<div class="container">
-				<div class="row">
-					<div class="col-xl-5 col-lg-6 text-white">
-						<h2>Ваш профиль</h2>
-						<p>Ваша почта</p>
-						
-						<div class="user-panel">
-							<a href="index.html" target="_blank">На главную</a>
-						</div>
-						<div class="user-panel">
-							<a href="index.html" target="_blank">Мои покупки</a>
-						</div>
- 
-						<div class="user-panel">
-							<a href="index.html" target="_blank">История</a>
-						</div>
- 
- 
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- Page info section --> {% endcomment %}
+        .order-details li h4 {
+            margin: 0;
+        }
 
+        .order-details li p {
+            margin: 0;
+        }
 
+        .order-details p.total-price {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
 
+    <h2>Корзина</h2>
 
-	{% endblock %}
+    <div class="order-details">
+        <h3>Ваш заказ</h3>
+        <ul>
+            {% if order_items %}
+                {% for item in order_items %}
+                    <li>
+                        <img src="{{ item.id_game.imagemain.url }}" alt="{{ item.id_game.name }}" style="width: 50px; height: 50px;">
+                        <h4>{{ item.id_game.name }}</h4>
+                        <p>Цена: {{ item.price }} тенге</p>
+                        <a href="{% url 'ecommerce:remove_from_basket' item.id %}">Удалить</a>
+                    </li>
+                {% endfor %}
+                <li class="total-price">Общая стоимость: {{ total_price }} тенге</li>
+            {% else %}
+                <li>Ваша корзина пуста.</li>
+            {% endif %}
+        </ul>
+    </div>
+
+    <div>
+        <a href="{% url 'ecommerce:checkout' %}" class="site-btn">Оформить заказ</a>
+    </div>
+{% endblock %}

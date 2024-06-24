@@ -45,6 +45,27 @@
         .search-form button[type="submit"]:hover {
             background-color: #e69500; /* Цвет фона кнопки при наведении */
         }
+
+        .search-results {
+            margin-top: 20px;
+        }
+
+        .no-results {
+            font-size: 1.2em;
+            color: red;
+            margin-top: 20px;
+            text-align: center;
+            border: 1px solid #ccc; /* Рамка */
+            padding: 20px; /* Внутренний отступ */
+            border-radius: 5px; /* Закругленные углы */
+            background-color: #f9f9f9; /* Светлый фон */
+            max-width: 600px; /* Максимальная ширина */
+            margin: 20px auto; /* Центрирование и отступы сверху и снизу */
+        }
+
+        main {
+            padding-bottom: 50px; /* Отступ снизу для пространства перед футером */
+        }
     </style>
 
     <section class="page-info-section set-bg" style="background-image: url('{% static 'gamewarrior/img/page-top-bg/3.jpg' %}');">
@@ -68,45 +89,51 @@
             <button type="submit">Искать <i class="fa fa-search"></i></button>
         </form>
 
-        <section class="primerigr">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        {% for game in games %}
-                            {% if forloop.counter|divisibleby:2 %}
-                                <div class="game-item">
-                                    <img src="{{ game.imagemain }}" alt="{{ game.name }}">
-                                    <h2>{{ game.name }}</h2>
-                                    <p>Год выхода: {{ game.year }}</p>
-                                    <div class="game-description">
-                                        <p>{{ game.description }}</p>
-                                    </div>
-                                    <div class="container">
-                                        <a href="{% url 'gamewarrior:card' game.slug %}" class="site-btn">Подробнее / {{ game.price }} тенге</a>
-                                    </div>
-                                </div>
-                            {% endif %}
-                        {% endfor %}
+        <div class="search-results">
+            {% if games %}
+                <section class="primerigr">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6">
+                                {% for game in games %}
+                                    {% if forloop.counter|divisibleby:2 %}
+                                        <div class="game-item">
+                                            <img src="{{ game.imagemain }}" alt="{{ game.name }}">
+                                            <h2>{{ game.name }}</h2>
+                                            <p>Год выхода: {{ game.year }}</p>
+                                            <div class="game-description">
+                                                <p>{{ game.description }}</p>
+                                            </div>
+                                            <div class="container">
+                                                <a href="{% url 'gamewarrior:card' game.slug %}" class="site-btn">Подробнее / {{ game.price }} тенге</a>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                            <div class="col-md-6">
+                                {% for game in games %}
+                                    {% if not forloop.counter|divisibleby:2 %}
+                                        <div class="game-item">
+                                            <img src="{{ game.imagemain }}" alt="{{ game.name }}">
+                                            <h2>{{ game.name }}</h2>
+                                            <p>Год выхода: {{ game.year }}</p>
+                                            <div class="game-description">
+                                                <p>{{ game.description }}</p>
+                                            </div>
+                                            <div class="container">
+                                                <a href="{% url 'gamewarrior:card' game.slug %}" class="site-btn">Подробнее / {{ game.price }} тенге</a>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-6">
-                        {% for game in games %}
-                            {% if not forloop.counter|divisibleby:2 %}
-                                <div class="game-item">
-                                    <img src="{{ game.imagemain }}" alt="{{ game.name }}">
-                                    <h2>{{ game.name }}</h2>
-                                    <p>Год выхода: {{ game.year }}</p>
-                                    <div class="game-description">
-                                        <p>{{ game.description }}</p>
-                                    </div>
-                                    <div class="container">
-                                        <a href="{% url 'gamewarrior:card' game.slug %}" class="site-btn">Подробнее / {{ game.price }} тенге</a>
-                                    </div>
-                                </div>
-                            {% endif %}
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-        </section>
+                </section>
+            {% else %}
+                <p class="no-results">Ничего не найдено</p>
+            {% endif %}
+        </div>
     </main>
 {% endblock %}

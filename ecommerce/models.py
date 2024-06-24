@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import User
-
 from gamewarrior.models import Game
 
 class Order(models.Model):
@@ -9,7 +8,7 @@ class Order(models.Model):
     status = models.BooleanField(default=False)
     created_at = models.DateField(auto_now=True)
     updated_at = models.DateField(null=True)
-    
+
     def save(self, *args, **kwargs):
         if not self.id:
             self.id_user.id

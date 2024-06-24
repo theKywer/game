@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <h2>Спасибо за ваш заказ!</h2>
+    <p>Ваш заказ был успешно оформлен.</p>
+    <p>Общая стоимость: {{ total_price }} тенге</p>
+
+    <div class="order-details">
+        <h3>Детали заказа</h3>
+        <ul>
+            {% for item in order_items %}
+                <li>
+                    <img src="{{ game.imagemain }}" alt="{{ game.name }}" style="width: 50px; height: 50px;">
+                    <h4>{{ game.name }}</h4>
+                    <p>Цена: {{ game.price }} тенге</p>
+                </li>
+            {% empty %}
+                <li>Ваш заказ пуст.</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
